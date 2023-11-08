@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document Object Model</title>
+    </head>
+    <body>
+        <h1>process - 1</h1>
+        <h2>process - 2</h2>
+        <script>
+            document.querySelector('h1').style.background = 'red';
+            document.querySelector('h2').style.color = 'red';
+        </script>
+    </body>
+</html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM basic</title>
+        <script>
+            window.onload = function (){
+                var header = document.getElementById('header')
+                header.style.color = 'orange';
+                header.style.background = 'red';
+                header.innerHTML = 'From JavaScript';
+            };
+
+        </script>
+    </head>
+    <body>
+        <h1 id = "header">Header</h1>
+    </body>
+</html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM basic</title>
+        <script>
+            window.onload = function (){
+                var header = document.querySelector('h1')
+                header.style.color = 'orange';
+                header.style.background = 'red';
+                header.innerHTML = 'From JavaScript';
+            };
+
+        </script>
+    </head>
+    <body>
+        <h1>header</h1>
+        <h1>header</h1>
+        <h1>header</h1>
+    </body>
+</html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM basic</title>
+        <script>
+            window.onload = function (){
+                var headers = document.querySelectorALL('h1');
+
+                for (var i = 0; i < headers.length; i++) {
+                    var header = headers[i];
+                    header.style.color = 'orange';
+                    header.style.background = 'red';
+                    header.innerHTML = 'From JavaScript';
+
+                }
+            };
+        </script>
+    </head>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Basic</title>
+    <script>
+        window.onload = function () {
+            var output = '';
+            for (var i = 0; i < 256; i++) {
+                output += '<div>ddd</div>';
+            }
+            document.body.innerHTML = output;
+            var divs = document.querySelectorAll('div');
+            for (var i = 0; i < divs.length; i++) {
+                var div = divs[i];
+                div.style.height = '2px';
+                div.style.background = 'rgb(' + i + ',' + i + ',' + i + ')';
+            }
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
