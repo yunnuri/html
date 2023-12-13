@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2302563 윤누리</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        .slider {
+            position: relative;
+            width: 460px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .images {
+            position: absolute;
+            width: 1840px; 
+        }
+
+        .image {
+            margin: 0;
+            padding: 0;
+            width: 460px;
+            height: 300px;
+            display: block;
+            float: left;
+        }
+        #footer {background-color: rgb(237, 190, 255);
+        width: 500px;}
+    </style>
+    <script>
+        $(document).ready(function() {
+            const width = 460;
+            const height = 300;
+            let current = 0;
+            const moveTo = function () {
+                $('.images').animate({
+                    left: -current * width
+                },1000);
+            };
+            const imageLength = $('.slider').find('.image').length;
+            for (let i = 0; i < imageLength; i++){
+                $('<button></button>')
+                    .attr('data-position', i)
+                    .text(i)
+                    .click(function() {
+                        current = parseInt($(this).attr('data-position'));
+                        moveTo();
+                    })
+                    .insertBefore('.slider');
+            }
+                $('.slider').css({
+                position: 'relative',
+                width: width,
+                height : height,
+                overflow: 'hidden'
+            });
+            $('.images').css({
+                position : 'absolute',
+                width : width * imageLength,
+            });
+            $('.image').css({
+                margin : 0,
+                padding: 0,
+                width:width,
+                height:height,
+                display:'block',
+                float:'left'
+            });
+            setInterval(function () {
+                current = (current + 1) % imageLength;
+                moveTo();
+            }, 3000);
+        });
+    </script>
+</head>
+<body>
+    <footer id="footer">2302563 윤누리</footer>
+    <div class="slider">
+        <div class="images">
+            <img class="image" src="기름이1.jpg">
+            <img class="image" src="기름이2.jpg">
+            <img class="image" src="기름이3.jpg">
+            <img class="image" src="기름이4.jpg">
+            <div class="image">
+                <h1>기름이</h1>
+                <p>귀여워</p>
+        </div>
+    </div>
+</body>
+</html>
